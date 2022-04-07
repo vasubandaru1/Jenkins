@@ -11,12 +11,13 @@ pipeline{
 
     }
       }
+      }
 
     post {
     always {
      println "post step"
 
-    }
+
 
     }
 
