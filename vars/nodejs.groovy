@@ -16,8 +16,6 @@ def call(Map params = [:]) {
 
             stage("Labiling Build") {
                 steps {
-                    script {
-                        str = GIT_BRANCH.split('/').last
                         addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "COMPONENT = ${params.COMPONENT}"
 //                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "BRANCH = ${str}"
 //                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${ENV}"
