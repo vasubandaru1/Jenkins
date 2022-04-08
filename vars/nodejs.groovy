@@ -6,32 +6,32 @@ pipeline {
     stages {
         stage("compile") {
             steps {
-                ssh '''
+                ssh ''
 
                 "echo  compile"
                 "echo COMPONENT = ${COMPONENT}"
                 
-                '''
+                ''
             }
         }
 
         stage("code quality") {
             steps {
-                ssh '''
+                ssh ''
                 
                 "echo  code quality"
                 
-                '''
+                ''
             }
         }
 
         stage("Test cases") {
             steps {
-                ssh '''
+                ssh ''
 
                 "echo  test cases"
                 
-                '''
+                ''
             }
         }
     }
