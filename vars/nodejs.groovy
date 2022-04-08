@@ -1,4 +1,11 @@
-def call(String COMPONENT, String LABEL) {
+def call(Map params = [:]) {
+    //start default arguments
+    def args;LinkedHashMap = [
+          COMPONENT : '',
+          LABEL    : 'work'
+
+    ]
+    args << params
 
     pipeline {
         agent {
