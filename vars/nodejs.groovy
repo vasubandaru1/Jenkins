@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
     //Start Default Arguments
     def args = [
-            COMPONENT: '',
-            LABEL: 'master'
+            COMPONENT            : "",
+            LABEL                : "master"
 
     ]
     args << params
