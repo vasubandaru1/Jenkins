@@ -55,7 +55,7 @@ def call(Map params = [:]) {
 
             post {
                 always {
-                    cleanWs ()
+                    cleanWs()
                 }
             }
 
