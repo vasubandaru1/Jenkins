@@ -1,7 +1,9 @@
 def call(String COMPONENT, String LABEL) {
 
 pipeline {
-    agent "${LABEL}"
+    agent {
+     label   "${LABEL}"
+    }
 
     stages {
         stage("compile") {
