@@ -9,7 +9,7 @@ def call(Map params = [:]) {
 
     pipeline {
         agent {
-            label LABEL
+            label params.LABEL
         }
 
         stages {
@@ -23,8 +23,7 @@ def call(Map params = [:]) {
             stage("CODE QUALITY") {
                 steps {
                     sh "echo CODE QUALITY"
-                    sh "echo COMPONENT = ${COMPONENT}"
-                    sh "echo  EX_COMP = ${EX_COMP}"
+                    sh "echo COMPONENT = ${params.COMPONENT}"
                 }
             }
 
