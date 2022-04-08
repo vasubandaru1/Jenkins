@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
     //Start Default Arguments
     def args = [
-            COMPONENT: '',
-            LABEL    : 'work'
+            COMPONENT: "",
+            LABEL    : "master"
 
     ]
     args << params
@@ -47,9 +47,9 @@ def call(Map params = [:]) {
 
 
                         stage("ARTIFACTORY") {
-//                            when {
-//                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
-//                            }
+                            when {
+                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
+                            }
                             steps {
                                 sh "echo TEST CASES"
                                 sh "env"
