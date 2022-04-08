@@ -14,6 +14,15 @@ def call(Map params = [:]) {
 
         stages {
 
+            stage ("Labiling Build") {
+                steps {
+                    scripts {
+                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${COMPONENT}"
+
+                    }
+                }
+            }
+
             stage("COMPILE") {
                 steps {
                     sh "echo COMPILE"
