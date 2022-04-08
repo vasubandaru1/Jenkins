@@ -15,6 +15,7 @@ def call(String COMPONENT) {
                 steps {
                     sh "echo CODE QUALITY"
                     sh "echo COMPONENT = ${COMPONENT}"
+                    ssh "echo  env.EX_COMP = ${EX_COMP}"
                 }
             }
 
