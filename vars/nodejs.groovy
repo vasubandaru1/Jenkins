@@ -14,7 +14,7 @@ def call(Map params = [:]) {
 
         stages {
 
-            stage ("Labiling Build") {
+            stage("Labiling Build") {
                 steps {
                     script {
                         addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${params.COMPONENT}"
@@ -45,13 +45,14 @@ def call(Map params = [:]) {
 
             stage("ARTIFACTORY") {
                 when {
-                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ])  }
+                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
                 }
                 steps {
                     sh "echo TEST CASES"
-                    sh  "env"
+                    sh "env"
                 }
             }
+        }
 
             post {
                 always {
@@ -60,6 +61,6 @@ def call(Map params = [:]) {
             }
 
 
-        }
+
     }
 }
