@@ -16,7 +16,7 @@ def call(Map params = [:]) {
 
             stage ("Labiling Build") {
                 steps {
-                    scripts {
+                    script {
                         addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${COMPONENT}"
 
                     }
