@@ -18,8 +18,8 @@ def call(Map params = [:]) {
                 steps {
                     script {
                         addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "COMPONENT = ${params.COMPONENT}"
-                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "BRANCH = ${str}"
-                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${ENV}"
+//                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "BRANCH = ${str}"
+//                        addShortText background: 'yellow', color: 'black', bordercolor: 'yellow', text: "${ENV}"
 
                     }
                 }
