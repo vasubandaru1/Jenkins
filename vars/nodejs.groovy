@@ -47,9 +47,9 @@ def call(Map params = [:]) {
 
 
                         stage("ARTIFACTORY") {
-                            when {
-                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
-                            }
+//                            when {
+//                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
+//                            }
                             steps {
                                 sh "echo TEST CASES"
                                 sh "env"
@@ -57,11 +57,11 @@ def call(Map params = [:]) {
                         }
                     }
 
-//                    post {
-//                        always {
-//                            cleanWs()
-//                        }
-//                    }
+                    post {
+                        always {
+                            cleanWs()
+                        }
+                    }
 
 
                 }
