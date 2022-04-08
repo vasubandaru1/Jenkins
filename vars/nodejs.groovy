@@ -4,25 +4,34 @@ pipeline {
     agent any
 
     stages {
-        stage('compile') {
+        stage("compile") {
             steps {
-                ssh ''
-                'echo  compile'
-                'echo COMPONENT = ${COMPONENT}'
+                ssh '''
+
+                "echo  compile"
+                "echo COMPONENT = ${COMPONENT}"
+                
+                '''
             }
         }
 
-        stage('code quality') {
+        stage("code quality") {
             steps {
-                ssh ''
-                'echo  code quality'
+                ssh '''
+                
+                "echo  code quality"
+                
+                '''
             }
         }
 
-        stage('Test cases') {
+        stage("Test cases") {
             steps {
-                ssh ''
-                'echo  test cases'
+                ssh '''
+
+                "echo  test cases"
+                
+                '''
             }
         }
     }
