@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
     //Start Default Arguments
     def args = [
-            COMPONENT       : '',
-            LABEL           : 'master'
+            COMPONENT: '',
+            LABEL: 'master'
 
     ]
     args << params
@@ -26,48 +26,48 @@ def call(Map params = [:]) {
                 }
             }
 
-                        stage("COMPILE") {
-                            steps {
-                                sh "echo COMPILE"
-                            }
-                        }
-
-                        stage("CODE QUALITY") {
-                            steps {
-                                sh "echo CODE QUALITY"
-                                sh "echo COMPONENT = ${params.COMPONENT}"
-                            }
-                        }
-
-                        stage("TEST CASES") {
-                            steps {
-                                sh "echo TEST CASES"
-                            }
-                        }
-
-
-                        stage("ARTIFACTORY") {
-                            when {
-                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
-                            }
-                            steps {
-                                sh "echo TEST CASES"
-                                sh "env"
-                            }
-                        }
-                    }
-
-                    post {
-                        always {
-                            cleanWs()
-                        }
-                    }
-
-
+            stage("COMPILE") {
+                steps {
+                    sh "echo COMPILE"
                 }
             }
 
+            stage("CODE QUALITY") {
+                steps {
+                    sh "echo CODE QUALITY"
+                    sh "echo COMPONENT = ${params.COMPONENT}"
+                }
+            }
 
+            stage("TEST CASES") {
+                steps {
+                    sh "echo TEST CASES"
+                }
+            }
+
+//
+//                        stage("ARTIFACTORY") {
+//                            when {
+//                                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
+//                            }
+//                            steps {
+//                                sh "echo TEST CASES"
+//                                sh "env"
+//                            }
+//                        }
+//                    }
+//
+//                    post {
+//                        always {
+//                            cleanWs()
+//                        }
+//                    }
+
+
+        }
+    }
+
+}
 
 
 
