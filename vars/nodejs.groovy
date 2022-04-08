@@ -1,4 +1,4 @@
-def call(String COMPONENT, String ) {
+def call(String COMPONENT ) {
 
 pipeline {
     agent any
@@ -6,32 +6,23 @@ pipeline {
     stages {
         stage("compile") {
             steps {
-                ssh ''
+                ssh "echo  compile"
+                ssh  "echo COMPONENT = ${COMPONENT}"
 
-                "echo  compile"
-                "echo COMPONENT = ${COMPONENT}"
-                
-                ''
             }
         }
 
         stage("code quality") {
             steps {
-                ssh ''
-                
-                "echo  code quality"
-                
-                ''
+                ssh "echo  code quality"
+
             }
         }
 
         stage("Test cases") {
             steps {
-                ssh ''
+                ssh "echo  test cases"
 
-                "echo  test cases"
-                
-                ''
             }
         }
     }
