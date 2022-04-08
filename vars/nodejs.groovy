@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
     //Start Default Arguments
-    def args LinkedHashMap = [
-          COMPONENT   : '',
-          LABEL       : 'work'
+    def args = [
+          COMPONENT   : "",
+          LABEL       : "work"
 
     ]
     args << params
