@@ -14,11 +14,11 @@ def call(Map params = [:]) {
 
         stages {
 
-            stage("COMPILE") {
-                steps {
-                    sh "echo COMPILE"
-                }
-            }
+//            stage("COMPILE") {
+//                steps {
+//                    sh "echo COMPILE"
+//                }
+//            }
 
             stage("CODE QUALITY") {
                 steps {
@@ -26,12 +26,12 @@ def call(Map params = [:]) {
                     sh "echo COMPONENT = ${params.COMPONENT}"
                 }
             }
-
-            stage("TEST CASES") {
-                steps {
-                    sh "echo TEST CASES"
-                }
-            }
+//
+//            stage("TEST CASES") {
+//                steps {
+//                    sh "echo TEST CASES"
+//                }
+//            }
 
 
         }
