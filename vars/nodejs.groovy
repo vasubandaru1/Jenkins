@@ -1,6 +1,6 @@
 //def call(String COMPONENT, String LABEL)
 def call(Map params = [:] ) {
-    def args  = [
+    def args ;LinkedHashMap  = [
             COMPONENT = '',
             LABEL     = 'master'
     ]
