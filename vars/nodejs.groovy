@@ -15,7 +15,7 @@ def call(Map params = [:]) {
         }
 
         stages {
-            stage("compile") {
+            stage('compile') {
                 steps {
                     sh "echo COMPONENT = ${params.COMPONENT}"
 
