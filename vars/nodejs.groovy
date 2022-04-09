@@ -22,6 +22,7 @@ def call(Map params = [:]) {
                         str = GIT_BRANCH.split('/').last()
                         addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "COMPONENT = ${params.COMPONENT}"
                         addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "BRANCH = ${str}"
+                        addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "BRANCH = ${ENV}"
                     }
                 }
             }
@@ -44,7 +45,7 @@ def call(Map params = [:]) {
             stage('Test cases') {
                 steps {
                     sh 'echo  test cases'
-                    sh 'env'
+                    sh 'echo env'
 
                 }
             }
@@ -71,7 +72,7 @@ def call(Map params = [:]) {
         }
 }
 
-///vvv
+//
 
 
 
