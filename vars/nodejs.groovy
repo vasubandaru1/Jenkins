@@ -15,6 +15,20 @@ def call(Map params = [:]) {
         }
 
         stages {
+
+            stage('Labeling Build') {
+                steps{
+                    sript{
+                        str = GIT_BRANCH.split('/').last()
+                        addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "${params.COMPONENT}"
+                        addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "BRANCH = ${str}"
+                    }
+                }
+            }
+
+
+
+
             stage('compile') {
                 steps {
                     sh "echo COMPONENT = ${params.COMPONENT}"
