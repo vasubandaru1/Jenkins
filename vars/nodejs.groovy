@@ -71,3 +71,5 @@ def call(Map params = [:]) {
 
 }
 
+cleanWsstage()
+
