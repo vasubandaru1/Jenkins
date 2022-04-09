@@ -1,8 +1,8 @@
 //def call(String COMPONENT, String LABEL)
 def call(Map params = [:] ) {
-    def args ;LinkedHashMap  = [
-            COMPONENT = '',
-            LABEL     = 'master'
+    def args =[
+            COMPONENT  = '',
+            LABEL      = 'master'
     ]
     pipeline {
         agent {
