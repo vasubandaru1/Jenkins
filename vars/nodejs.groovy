@@ -1,9 +1,14 @@
-//def call(String COMPONENT, String LABEL)
-def call(Map  = [:] ) {
-    [
-            COMPONENT  = '',
-            LABEL      = 'master'
+def call(Map params = [:]) {
+
+    def args   = [
+            COMPONENT      : '',
+            LABEL          : 'master'
+
     ]
+
+    args << params
+
+
     pipeline {
         agent {
             label "${LABEL}"
