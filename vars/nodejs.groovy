@@ -51,7 +51,7 @@ def call(Map params = [:]) {
 
             stage('Upload Artifacts') {
                 when {
-                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+                    expression {GIT_BRANCH == "*/tags/*" }
                 }
                 steps {
                     sh 'echo  test cases'
@@ -71,7 +71,7 @@ def call(Map params = [:]) {
         }
 }
 
-//
+//sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ])
 
 
 
