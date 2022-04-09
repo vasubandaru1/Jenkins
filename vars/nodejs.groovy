@@ -11,7 +11,7 @@ def call(Map params = [:]) {
 
     pipeline {
         agent {
-            label "${LABEL}"
+            label 'LABEL'
         }
 
         stages {
@@ -21,20 +21,20 @@ def call(Map params = [:]) {
 
                 }
             }
-
-            stage("code quality") {
-                steps {
-                    sh "echo  code quality"
-
-                }
-            }
-
-            stage("Test cases") {
-                steps {
-                    sh "echo  test cases"
-
-                }
-            }
+//
+//            stage("code quality") {
+//                steps {
+//                    sh "echo  code quality"
+//
+//                }
+//            }
+//
+//            stage("Test cases") {
+//                steps {
+//                    sh "echo  test cases"
+//
+//                }
+//            }
         }
     }
 
