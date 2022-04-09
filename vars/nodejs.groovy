@@ -39,6 +39,7 @@ def call(Map params = [:]) {
             stage('Upload Artifacts') {
                 steps {
                     sh 'echo  test cases'
+                    sh 'env'
 
                 }
             }
