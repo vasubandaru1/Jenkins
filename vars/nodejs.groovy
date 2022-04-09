@@ -11,7 +11,7 @@ def call(Map params = [:]) {
 
     pipeline {
         agent {
-            label 'LABEL'
+            label "{LABEL}"
         }
 
         stages {
