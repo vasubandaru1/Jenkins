@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
 
     def args= [
-            COMPONENT      : "",
-            LABEL          : "work"
+            COMPONENT      : '',
+            LABEL          : 'work'
 
     ]
 
