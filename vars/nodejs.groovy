@@ -50,8 +50,9 @@ def call(Map params = [:]) {
             }
 
             stage('Upload Artifacts') {
-                when { tag "release-*"}
-//                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+                when {
+                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+                }
 
                 steps {
                     sh 'echo  test cases'
@@ -69,7 +70,7 @@ def call(Map params = [:]) {
                     cleanWs()
                 }
             }
-        }
+    }
 }
 
 
