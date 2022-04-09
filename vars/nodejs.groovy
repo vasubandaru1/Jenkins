@@ -17,8 +17,8 @@ def call(Map params = [:]) {
         stages {
 
             stage('Labeling Build') {
-                steps{
-                    script{
+                steps {
+                    script {
                         str = GIT_BRANCH.split('/').last()
                         print str
                         addShortText background: 'yellow', color: 'black', borderColor: 'yellow', text: "COMPONENT = ${params.COMPONENT}"
@@ -26,8 +26,6 @@ def call(Map params = [:]) {
                     }
                 }
             }
-
-
 
 
             stage('compile') {
@@ -58,6 +56,7 @@ def call(Map params = [:]) {
 
                 }
             }
+        }
 
             post {
                 always {
@@ -65,7 +64,7 @@ def call(Map params = [:]) {
                 }
             }
         }
-    }
+
 
 }
 
