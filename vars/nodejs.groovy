@@ -44,17 +44,18 @@ def call(Map params = [:]) {
             stage('Test cases') {
                 steps {
                     sh 'echo  test cases'
-                    sh 'echo env'
+
 
                 }
             }
 
             stage('Upload Artifacts') {
                 when {
-                    expression {GIT_BRANCH == "*/tags/*" }
+                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
                 }
                 steps {
                     sh 'echo  test cases'
+                    sh 'env'
 
 
                 }
@@ -71,7 +72,7 @@ def call(Map params = [:]) {
         }
 }
 
-//sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ])
+//
 
 
 
