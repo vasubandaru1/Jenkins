@@ -29,15 +29,7 @@ def call(Map params = [:]) {
 
             stage('nodejs dependecies') {
                 steps {
-                    sh  ''' 
-                      echo '+++++++Before'
-                      ls -l
-                      npm install
-                      echo '+++++++After'
-                      ls -ltr
-                      
-                      '''
-
+                    sh "echo COMPONENT =  ${params.COMPONENT}"
 
                 }
             }
@@ -71,13 +63,13 @@ def call(Map params = [:]) {
             }
 
 
-    }
+        }
 
-            post {
-                always {
-                    cleanWs()
-                }
+        post {
+            always {
+                cleanWs()
             }
+        }
     }
 }
 
