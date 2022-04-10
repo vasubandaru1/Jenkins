@@ -27,33 +27,29 @@ def call(Map params = [:]) {
             }
 
 
-//            stage('submit code quality') {
-//                steps {
-//                    sh '''
-//
-//                    sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
-//
-//                    '''
-//
-//                }
-//            }
-
-            stage('SonarCloud') {
-                environment {
-                    SCANNER_HOME = tool 'SonarQubeScanner'
-                    ORGANIZATION = "igorstojanovski-github"
-                    PROJECT_NAME = "igorstojanovski_jenkins-pipeline-as-code"
-                }
+            stage('submit code quality') {
                 steps {
-                    withSonarQubeEnv('SonarCloudOne') {
-                        sh '''
+                    sh '''
 
-                          sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.java.binaries=build/classes/java/ -Dsonar.sources=.
-                          
-                          '''
-                    }
+                    sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.java.binaries=build/classes/java/ -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
+
+                    '''
+
                 }
             }
+
+//            stage('SonarCloud') {
+//
+//                steps {
+//                    withSonarQubeEnv('SonarCloudOne') {
+//                        sh '''
+//
+//                          sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.java.binaries=build/classes/java/ -Dsonar.sources=.
+//
+//                          '''
+//                    }
+//                }
+//            }
 //            stage('check code quality') {
 //                steps {
 //                    sh    '''
