@@ -1,8 +1,8 @@
 def call(Map params = [:]) {
 
-    def args= [
-            COMPONENT      : '',
-            LABEL          : 'work'
+    def args = [
+            COMPONENT: '',
+            LABEL    : 'work'
 
     ]
 
@@ -29,13 +29,13 @@ def call(Map params = [:]) {
 
             stage('nodejs dependecies') {
                 steps {
-                    sh  ''' 
+                    sh '''
                       echo '+++++++Before'
                       ls -l
                       npm install
                       echo '+++++++After'
                       ls -ltr
-                      
+
                       '''
 
 
@@ -59,29 +59,45 @@ def call(Map params = [:]) {
 
             stage('Upload Artifacts') {
                 when {
-                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
                 }
-
                 steps {
-                    sh 'echo  test cases'
-                    sh 'env'
+                    sh """
+          GIT_TAG=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
+          echo \${GIT_TAG} >version
+          zip -r ${params.COMPONENT}-\${GIT_TAG}.zip node_modules server.js version
+          curl -f -v -u ${NEXUS} --upload-file ${params.COMPONENT}-\${GIT_TAG}.zip http://172.31.90.100:8080/repository/${params.COMPONENT}/${params.COMPONENT}-\${GIT_TAG}.zip
+          """
 
+//
+//            stage('Upload Artifacts') {
+//                when {
+//                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+//                }
+//
+//                steps {
+//                    sh 'echo  test cases'
+//                    sh 'env'
+//
+//
+//                }
+//            }
+//
 
                 }
             }
 
-
-    }
-
-            post {
-                always {
-                    cleanWs()
+                post {
+                    always {
+                        cleanWs()
+                    }
                 }
             }
+        }
     }
-}
 
-//vasu
+
+
 
 
 
