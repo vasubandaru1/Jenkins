@@ -25,37 +25,37 @@ def call(Map params = [:]) {
                     }
                 }
             }
-        }
 
-        stage('code quality') {
-            steps {
-                sh 'echo  code quality'
+
+            stage('code quality') {
+                steps {
+                    sh 'echo  code quality'
+
+                }
+            }
+
+            stage('Test cases') {
+                steps {
+                    sh 'echo  test cases'
+
+
+                }
+            }
+
+            stage('Upload Artifacts') {
+                when {
+                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
+                }
+
+                steps {
+                    sh 'echo  test cases'
+                    sh 'env'
+
+
+                }
 
             }
         }
-
-        stage('Test cases') {
-            steps {
-                sh 'echo  test cases'
-
-
-            }
-        }
-
-        stage('Upload Artifacts') {
-            when {
-                expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
-            }
-
-            steps {
-                sh 'echo  test cases'
-                sh 'env'
-
-
-            }
-
-        }
-    }
 
 
         post {
@@ -65,7 +65,7 @@ def call(Map params = [:]) {
         }
     }
 
-
+}
 
 
 
