@@ -55,8 +55,9 @@ def call(Map params = [:]) {
 
             stage('check code quality') {
                 steps {
-                    sh '''
-
+                    sh    '''
+                    
+                    sleep 5
                     sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 params.COMPONENT
                     
                     '''
