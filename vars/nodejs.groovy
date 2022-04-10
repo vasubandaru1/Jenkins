@@ -52,18 +52,18 @@ def call(Map params = [:]) {
 
                 }
             }
-
-            stage('check code quality') {
-                steps {
-                    sh    '''
-                    
-                    
-                    sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 {params.COMPONENT}
-                    
-                    '''
-
-                }
-            }
+//
+//            stage('check code quality') {
+//                steps {
+//                    sh    '''
+//
+//
+//                    sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 params.COMPONENT
+//
+//                    '''
+//
+//                }
+//            }
 
             stage('Test cases') {
                 steps {
