@@ -1,10 +1,10 @@
-def call(Map params = [:] as Map) {
+def call(Map params = [:]) {
 
     def args= [
             COMPONENT      : '',
             LABEL          : 'work'
 
-    ]
+    ] as java.lang.Object
 
     args << params
 
