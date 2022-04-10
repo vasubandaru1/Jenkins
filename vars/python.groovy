@@ -27,16 +27,6 @@ def call(Map params = [:]) {
             }
 
 
-            stage('maven package') {
-                steps {
-                    sh  ''' 
-                     mvn package
-                      
-                      '''
-
-
-                }
-            }
 
             stage('code quality') {
                 steps {
