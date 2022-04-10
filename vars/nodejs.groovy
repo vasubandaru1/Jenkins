@@ -46,7 +46,7 @@ def call(Map params = [:]) {
                 steps {
                     sh '''
 
-                    sonar-scanner -Dsonar.projectKey='{params.COMPONENT}' -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
+                    sonar-scanner -Dsonar.projectKey={params.COMPONENT} -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
                     
                     '''
 
