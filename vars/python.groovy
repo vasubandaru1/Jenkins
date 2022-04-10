@@ -31,36 +31,24 @@ def call(Map params = [:]) {
                 steps {
                     sh '''
 
-                    sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.java.binaries=build/classes/java/ -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
-
+                    sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
+                    
                     '''
 
                 }
             }
 
-//            stage('SonarCloud') {
-//
-//                steps {
-//                    withSonarQubeEnv('SonarCloudOne') {
-//                        sh '''
-//
-//                          sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.java.binaries=build/classes/java/ -Dsonar.sources=.
-//
-//                          '''
-//                    }
-//                }
-//            }
-//            stage('check code quality') {
-//                steps {
-//                    sh    '''
-//
-//
-//                    sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 params.COMPONENT
-//
-//                    '''
-//
-//                }
-//            }
+            stage('check code quality') {
+                steps {
+                    sh    '''
+
+
+                    sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 params.COMPONENT
+
+                    '''
+
+                }
+            }
 
             stage('Test cases') {
                 steps {
