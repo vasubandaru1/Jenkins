@@ -42,18 +42,18 @@ def call(Map params = [:]) {
                 }
             }
 
-            stage('Upload Artifacts') {
-                when {
-                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
-                }
-
-                steps {
-                    sh 'echo  test cases'
-                    sh 'env'
-
-
-                }
-            }
+//            stage('Upload Artifacts') {
+//                when {
+//                    expression {sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) }
+//                }
+//
+////                steps {
+////                    sh 'echo  test cases'
+//                    sh 'env'
+//
+//
+//                }
+//            }
 
 
     }
