@@ -31,7 +31,6 @@ def call(Map params = [:]) {
             stage('code quality') {
                 steps {
                     sh 'echo  code quality'
-
                 }
             }
 
