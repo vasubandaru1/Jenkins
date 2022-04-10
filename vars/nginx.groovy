@@ -28,9 +28,25 @@ def call(Map params = [:]) {
 
 
 
-            stage('code quality') {
+            stage('submit code quality') {
                 steps {
-                    sh 'echo  code quality'
+                    sh '''
+
+                    sonar-scanner -Dsonar.projectKey=params.COMPONENT -Dsonar.sources=. -Dsonar.host.url=http://172.31.16.189:9000 -Dsonar.login=fafb7a5e6fe61b24e3e21862ff3fe5b4d4180779
+                    
+                    '''
+
+                }
+            }
+
+            stage('check code quality') {
+                steps {
+                    sh    '''
+                    
+                    
+                    sonar-quality-gate.sh admin Vasu@1991 172.31.16.189 params.COMPONENT
+                    
+                    '''
 
                 }
             }
